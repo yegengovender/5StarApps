@@ -1,0 +1,148 @@
+body {
+  background-image: url('../images/joburg-colour.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-size-adjust: 1.25; }
+
+.section-page {
+  padding: 40px 0; }
+
+#menu {
+  position: fixed;
+  z-index: 100; }
+
+.nav-pills > li {
+  padding: 10px; }
+
+.nav-pills > li > a {
+  color: white;
+  background-color: #aaaaaa;
+  transition: text-shadow 0.5s, background-color 0.5s; }
+
+.nav-pills > li.active > a {
+  color: white;
+  background-color: #4b4b4b;
+  font-weight: bold;
+  text-shadow: 0 3px 2px #000; }
+
+.nav-pills > li > a:hover, .nav-pills > li > a:focus {
+  color: white;
+  background-color: grey;
+  text-shadow: 0 3px 2px #4b4b4b; }
+
+.nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+  color: white;
+  background-color: #383838;
+  text-shadow: 0 3px 2px #000; }
+
+#about-contact {
+  background-color: #444;
+  color: white;
+  padding: 50px 0;
+  text-shadow: 3px 3px 1px #000; }
+
+#about-contact .col1, #about-contact .col2 {
+  min-height: 300px; }
+
+#about-contact .col1 {
+  border-right: solid 2px #000; }
+
+#about-contact .col2 {
+  border-left: solid 2px #999; }
+
+#main-heading {
+  text-align: center;
+  background-color: rgba(228, 228, 228, 0.65);
+  color: white; }
+
+.mainlogo i {
+  color: #ffd800;
+  margin: 5px;
+  text-shadow: 5px 5px 2px #1e1e1e; }
+
+.mainlogo i.star1 {
+  font-size: 30px; }
+
+.mainlogo i.star2 {
+  font-size: 40px; }
+
+.mainlogo i.star3 {
+  font-size: 50px; }
+
+div.mainlogo:hover > i.star1, div.mainlogo:hover > i.star2, div .mainlogo:hover > i.star3 {
+  font-size: 30px; }
+
+div.companynameborder {
+  text-align: center;
+  margin: 50px auto;
+  height: 410px;
+  width: 410px;
+  border: solid 10px rgba(60, 60, 60, 0.8);
+  border-radius: 50%; }
+
+div.companyname {
+  height: 380px;
+  width: 380px;
+  background-color: rgba(60, 60, 60, 0.8);
+  border-radius: 50%;
+  margin: 5px;
+  padding-top: 50px; }
+
+.companyname h1, .companyname h2 {
+  font-family: Georgia;
+  color: #CCC; }
+
+.companyname h1 {
+  font-size: 60px; }
+
+.companyname h2 {
+  font-size: 50px; }
+
+.myname h1 {
+  font-size: 100px; }
+
+.portfolio {
+  color: #A67200; }
+
+#songza-browser {
+  background-color: #115673;
+  color: #e2e2e2; }
+
+#songza-browser .well {
+  background-color: #1F4656;
+  border: transparent; }
+
+#songza-browser .col1 {
+  text-align: center; }
+
+.circular {
+  border-radius: 50%; }
+
+img.circular {
+  margin: 30px;
+  border: solid 8px; }
+
+#songza-browser img.circular {
+  border-color: #4395B9; }
+
+img.circular:hover {
+  border-radius: 0; }
+
+#ign-phone-app {
+  background-color: #838383;
+  color: #e2e2e2; }
+
+#ign-phone-app .well {
+  background-color: #9E9E9E;
+  border: transparent; }
+
+#ign-phone-app img.circular {
+  border-color: #636363; }
+
+/*
+    http://colorschemedesigner.com/#3r51Ts.mUw0w0
+    http://colorschemedesigner.com/#1u51Tw0w0w0w0
+    http://colorschemedesigner.com/#2Y21TnmAEw0w0
+    node-sass Content/site.scss --output site.css -w
+*/
