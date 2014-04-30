@@ -5,6 +5,16 @@
   font-weight: normal;
   font-style: normal; }
 
+@keyframes spin-in {
+  from {
+    font-size: 5px;
+    transform: rotate(600deg); } }
+
+@-webkit-keyframes spin-in-w {
+  from {
+    font-size: 5px;
+    -webkit-transform: rotate(600deg); } }
+
 body {
   background-image: url('../images/joburg-colour.png');
   background-size: cover;
@@ -48,15 +58,12 @@ body {
   color: white;
   padding: 50px 0;
   text-shadow: 3px 3px 1px #000; }
-
-#about-contact .col1, #about-contact .col2 {
-  min-height: 300px; }
-
-#about-contact .col1 {
-  border-right: solid 2px #000; }
-
-#about-contact .col2 {
-  border-left: solid 2px #999; }
+  #about-contact .col1, #about-contact .col2 {
+    min-height: 300px; }
+  #about-contact .col1 {
+    border-right: solid 2px #000; }
+  #about-contact .col2 {
+    border-left: solid 2px #999; }
 
 #main-heading {
   text-align: center;
@@ -64,22 +71,19 @@ body {
   text-shadow: 0 0 20px #333;
   font-family: 'league_gothicregular', Helvetica; }
 
-.mainlogo i {
+.mainlogo {
   color: #ffd800;
   margin: 5px;
   text-shadow: 5px 5px 2px #1e1e1e; }
-
-.mainlogo i.star1 {
-  font-size: 30px; }
-
-.mainlogo i.star2 {
-  font-size: 40px; }
-
-.mainlogo i.star3 {
-  font-size: 50px; }
-
-div.mainlogo:hover > i.star1, div.mainlogo:hover > i.star2, div .mainlogo:hover > i.star3 {
-  font-size: 30px; }
+  .mainlogo i.star1 {
+    font-size: 30px; }
+  .mainlogo i.star2 {
+    font-size: 40px; }
+  .mainlogo i.star3 {
+    font-size: 50px; }
+  .mainlogo i.star1, .mainlogo i.star2, .mainlogo i.star3 {
+    animation: spin-in 1.5s;
+    -webkit-animation: spin-in-w 1.5s; }
 
 div.companynameborder {
   text-align: center;
@@ -96,18 +100,14 @@ div.companyname {
   border-radius: 50%;
   margin: 5px;
   padding-top: 50px; }
-
-.companyname h1, .companyname h2 {
-  font-family: Georgia;
-  color: #CCC; }
-
-.companyname h1 {
-  font-size: 90px;
-  font-family: 'league_gothicregular', Helvetica; }
-
-.companyname h2 {
-  font-size: 75px;
-  font-family: 'league_gothicregular', Helvetica; }
+  div.companyname h1, div.companyname h2 {
+    font-family: Georgia;
+    color: #CCC;
+    font-family: 'league_gothicregular', Helvetica; }
+  div.companyname h1 {
+    font-size: 90px; }
+  div.companyname h2 {
+    font-size: 75px; }
 
 .myname h1 {
   font-size: 100px;
@@ -116,41 +116,6 @@ div.companyname {
 .portfolio {
   color: #E9D988;
   font-family: 'league_gothicregular', Helvetica; }
-
-#songza-browser {
-  background-color: #115673;
-  color: #e2e2e2; }
-
-#songza-browser .well {
-  background-color: #1F4656;
-  border: transparent; }
-
-#songza-browser .col1 {
-  text-align: center; }
-
-.circular {
-  border-radius: 50%; }
-
-img.circular {
-  margin: 30px;
-  border: solid 8px; }
-
-#songza-browser img.circular {
-  border-color: #4395B9; }
-
-img.circular:hover {
-  border-radius: 0; }
-
-#ign-phone-app {
-  background-color: #838383;
-  color: #e2e2e2; }
-
-#ign-phone-app .well {
-  background-color: #9E9E9E;
-  border: transparent; }
-
-#ign-phone-app img.circular {
-  border-color: #636363; }
 
 /*
     http://colorschemedesigner.com/#3r51Ts.mUw0w0
