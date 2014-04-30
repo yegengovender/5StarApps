@@ -71,6 +71,10 @@ body {
   text-shadow: 0 0 20px #333;
   font-family: 'league_gothicregular', Helvetica; }
 
+.animated-star, .mainlogo i.star1, .mainlogo i.star2, .mainlogo i.star3 {
+  animation: spin-in 1.5s;
+  -webkit-animation: spin-in-w 1.5s; }
+
 .mainlogo {
   color: #ffd800;
   margin: 5px;
@@ -81,9 +85,6 @@ body {
     font-size: 40px; }
   .mainlogo i.star3 {
     font-size: 50px; }
-  .mainlogo i.star1, .mainlogo i.star2, .mainlogo i.star3 {
-    animation: spin-in 1.5s;
-    -webkit-animation: spin-in-w 1.5s; }
 
 div.companynameborder {
   text-align: center;

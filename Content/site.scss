@@ -99,29 +99,31 @@ body {
 }
 
 
+.animated-star {
+    animation: spin-in 1.5s;
+    -webkit-animation: spin-in-w 1.5s;        
+}
+
 .mainlogo {
     color: #ffd800;
     margin: 5px;
     text-shadow: 5px 5px 2px rgb(30,30,30);
-
+    
     i.star1 {
+        @extend .animated-star; 
         font-size: 30px;
     }
 
     i.star2 {
+        @extend .animated-star;
         font-size: 40px;
     }
 
     i.star3 {
+        @extend .animated-star;
         font-size: 50px;
     }
     
-    i.star1,
-    i.star2,
-    i.star3 {
-        animation: spin-in 1.5s;
-        -webkit-animation: spin-in-w 1.5s;        
-    }
 }
 
 div.companynameborder {
