@@ -1,0 +1,225 @@
+[Disclaimer]
+
+
+
+
+[Title slide]
+Unit Testing
+A Quick intro...
+
+
+Unit Testing is a coding technique of writing test code 
+to ensure that a unit of functionality operates as expected.,
+
+
+
+[Characteristics of Unit Tests]
+Tests are typically small and fast, 
+and ideally all should be run regularly 
+to ensure the codebase is functioning as expected.
+
+Isolated - The only requirement for a test to run is the code it is testing, 
+and other code/tests should not be dependent on the test.
+
+Targeted - A test will focus on a single unit of functionality.
+
+Repeatable - Tests can be run as many times as necessary.
+
+Predictable - A test should be straight forward and easy to 
+understand what is is testing and why it is passing or failing
+
+
+Since the code being tested should is independent of external libraries and tools,  
+if the test fails we are certain that it is the code itself 
+that has violated the conditions of the test 
+and not some external factor.
+
+
+
+
+This is great for troubleshooting. 
+[TROUBLESHOOTING]
+If we have tests that are failing, it does not take long
+to find the code that is causing the problem, 
+because the test will point you straight to it. 
+At this point either the code or the test needs to be fixed.
+
+
+[LOOSELY COUPLED CODE]
+
+Writing testable code requires elimination of tightly coupled dependencies, 
+leading to a maintainable code base. 
+It is easier to make a change to code when you don't have to worry 
+that whichever changes you are making will have 
+unforeseen repercussions that would require rigorous regression testing to uncover.
+
+A comprehensive test suite ensures that the full functionality 
+of the code can be determined at any time by running the test suite.
+Again it must be stressed that the tests be kept lightweight and fast. 
+If the tests are going to be a burden to run, they won't get run.
+
+
+[DISCIPLINE]
+Unit testing requires a fair amount of discipline. 
+Writing some code that is tested, and then abandoning the tests as the solution progresses
+renders the tests useless. 
+By the time one gets to a point when the business requirement changes (and i say 'when' not 'if') 
+a large portion of untested code will remain to pollute the integrity of the code. 
+A passing test suite will no longer indicate code integrity. 
+And failing tests will probably not be helpful in localising the problem in the code.
+So if you are writing unit tests, write ALL of them.
+[TEST THEM ALL]
+
+
+
+Remember, if a test can't be written for your code, 
+it's probably going to be just as difficult to make changes to it. 
+Untestable code usually indicates some tight coupling or rigidity. 
+It may be stuff that you as the original developer may be aware of, 
+but the next person to work on the code will take longer to understand how it works 
+than the amount of time required to originally write it.
+So be considerate.
+[CONSIDERATE]
+
+
+
+Kent Beck says in his book 'Implementation Patterns' that 
+the cost of code maintenance is far higher than the cost of initial development.
+
+[Maintenance is expensive because understanding existing code is time-consuming an error-prone...
+Learning what the current code does is the expensive part]
+
+At the time of maintenance, time is not allocated for re-learning of code.
+Business expects fixes to be quicker than building from scratch, 
+so it is essential to try to reduce the cost of code maintenance by making
+predictable maintainable code. Taking this into account, 
+the additional time required to write tests for units of code 
+as it is being developed quickly becomes worth the time invested.
+
+[So write some code. To test your code. While you code.]
+
+
+
+I can go on about how testing improves code quality, and the principles that are learned from it, 
+but as we have limited time, I think we'll dive into some code, 
+and see if we have more time for theory a bit later.
+
+
+[Switch to code]
+
+
+The recommended practise of Unit Testing is prescribed as TDD.
+Test Triven Development is the writing of Unit Tests that determine business functionality, 
+followed by writing code to fulfil this functionality.
+
+So now your unit fulfils the business functionality and is ready to ship. If that is the only requirement for the sprint, then ship it.
+
+
+
+[Business Requirements - Exchange Rate Feed]
+
+
+Now we have our requirements, we will start a new project and add a test suite.
+
+Start writing our first test for first business requirement.
+
+Arrange - Set up environment variables and mocks
+Action - Execute the funcitonality we are testing
+Assert - Check if the code behaves as expected. 
+	Assert is a command that evaluates to true or false, 
+	determines the pass or fail of the test.
+	
+[AAA]
+
+
+Now make the code compile to begin [RGR]
+
+Red - Code compiles, but test does not pass
+The goal is to move to Green
+
+Green - Test passes
+
+Refactor - With our tests guarding our business requirement, 
+we can refactor away and always know at any point if we have broken anything,
+
+
+
+[A bug]
+
+Now lets introduce a bug into the system
+
+Lets just say that as the Opayque DB and our engine are independent of each other, 
+the from-currencies and to-currencies lists are not static, but
+are changed around every now and then.
+
+Some days the lists are even empty. So we ask Jono wat happens to the feed when one on the lists is empty, 
+and he says what does the feed return?
+so we test it in the browser and find that wow it works fine. It simply doesnt apply a filter to the missing list. 
+Strangely enough our code breaks...
+
+[Back to code]
+
+
+
+We write up a couple more tests to see cover these conditions.
+
+So we find that the helper method is breaking with an empty string. Fixy fixy and magic
+Passing tests.
+
+
+So now we are refactoring Junkies, and we start to refactor the tests.
+This is important, as it is also part of the code base and needs to be maintained.
+Future developers that expand on this project will be expanding the test suites as well,
+or using the test suites to troubleshoot. If we let it get messy, it loses value. 
+Remember discipline.
+
+[Recap]
+
+Let's recap what we just saw.
+
+Unit tests are run in a test suite, 
+implementing a testing framework.
+
+
+[Tools]
+-----
+NUnit
+VS Testing Framework (TFS)
+
+Rhino Mocks
+Moq
+JustMock
+
+
+A note on mocking...
+
+[Mocks]
+Dummy object - created just to allow code to compile
+Stub - provides return values on the methods that are used by the test
+Mock - Flexible object with functionality that is programmable
+
+
+[Techniques]
+AAA
+RGR
+
+Write only what you need to make the tests pass
+
+Use dependency injection for code dependencies
+
+Refactoring - apply good OOP + SOLID
+
+[SOLID and OOP]
+
+
+
+[Code smells]
+look for code smells such as code repetition, long methods and bad naming
+
+Less code == less room for errors.
+
+
+[further reading]
+This is an aspect of development that is 
+
+Im still learning

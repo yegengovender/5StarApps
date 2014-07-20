@@ -1,0 +1,14 @@
+Business Requirements
+
+
+Build query URL
+ Given    - confighelper returns baseurl
+          - db.getFromCurrencies returns list of currency symbols eg. USD,ZAR,CAD
+          - db.getToCurrencies returns list of currency symbols eg. GBP, 
+
+Retrieve CSV from Web and format
+
+convert lines to objects
+
+store to database
+

@@ -1,0 +1,403 @@
+using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
+using System.Collections.Generic;
+
+namespace TestingExample.Tests
+{
+    [TestClass]
+    public class ExchangeRateFeedTests
+    {
+        [TestMethod]
+        public void TestBuildQueryURL()
+        {
+            var configHelper = new Mock<IConfigHelper>();
+            configHelper.Setup(c => c.FeedUrl()).Returns("www.base.com");
+
+            var db = new Mock<IOpayqueDb>();
+            db.Setup(d => d.GetFromCurrencies()).Returns(new List<string> { "C1", "C2" });
+            db.Setup(d => d.GetToCurrencies()).Returns(new List<string> { "CA", "CB" });
+
+            var exchangeRateEngine = new ExchangeRateEngine(configHelper.Object, db.Object);
+
+            var date = new DateTime(2012, 3, 12);
+
+            var result = exchangeRateEngine.GetUrl(date);
+            var expected = "www.base.com?Base=C1_C2&Code=CA_CB&Date=2012/03/12";
+
+            Assert.AreEqual(expected, Result);
+        }
+    }
+}
+
+
+//Build query URL
+// Given    - confighelper returns baseurl
+//          - db.getFromCurrencies returns list of currency symbols eg. USD,ZAR,CAD
+//          - db.getToCurrencies returns list of currency symbols eg. GBP, 
+
+//Retrieve CSV from Web and format
+
+//convert lines to objects
+
+//store to database
+
+
+-----------------------------------------
+
+using System.Collections.Generic;
+public interface IConfigHelper
+{
+    string FeedUrl();
+}
+
+public interface IOpayqueDb
+{
+    List<string> GetFromCurrencies();
+    List<string> GetToCurrencies();
+}
+
+-----------------------------------------------------------------------------------------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace TestingExample.Models
+{
+    public class ExchangeRateEngine
+    {
+        private IConfigHelper configHelper;
+        private IOpayqueDb db;
+
+        public ExchangeRateEngine(IConfigHelper configHelper, IOpayqueDb db)
+        {
+            // TODO: Complete member initialization
+            this.configHelper = configHelper;
+            this.db = db;
+        }
+
+
+        public object GetUrl(DateTime date)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
+
+
+-----------------------------------------------------------------------------------------------------------
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Text;
+using System.Web;
+
+namespace TestingExample.Models
+{
+    public class ExchangeRateEngine
+    {
+        private IConfigHelper _configHelper;
+        private IOpayqueDb _db;
+
+        public ExchangeRateEngine(IConfigHelper configHelper, IOpayqueDb db)
+        {
+            _configHelper = configHelper;
+            _db = db;
+        }
+        
+        public string GetUrl(DateTime date)
+        {
+            var url = new StringBuilder();
+
+            var baseUrl = _configHelper.FeedUrl();
+            var fromCurrencies = _db.GetFromCurrencies();
+            var toCurrencies = _db.GetToCurrencies();
+
+            url.Append(baseUrl);
+            url.Append("?Base=");
+            foreach (var fromCurrency in fromCurrencies)
+            {
+                url.Append(fromCurrency);
+                url.Append("_");
+            }
+            url.Remove(url.Length - 1, 1);
+
+            url.Append("&Code=");
+            foreach (var toCurrency in toCurrencies)
+            {
+                url.Append(toCurrency);
+                url.Append("_");
+            }
+            url.Remove(url.Length - 1, 1);
+            
+            url.Append("&Date=");
+            url.Append(date.ToString("yyyy/MM/dd"));
+
+            return url.ToString();
+        }
+    }
+}
+
+
+-----------------------------------------------------------------------------------------------------------
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Text;
+using System.Web;
+
+namespace TestingExample.Models
+{
+    public class ExchangeRateEngine
+    {
+        private IConfigHelper _configHelper;
+        private IOpayqueDb _db;
+
+        public ExchangeRateEngine(IConfigHelper configHelper, IOpayqueDb db)
+        {
+            _configHelper = configHelper;
+            _db = db;
+        }
+        
+        public string GetUrl(DateTime date)
+        {
+            var url = new StringBuilder();
+
+            var baseUrl = _configHelper.FeedUrl();
+            var fromCurrencies = _db.GetFromCurrencies();
+            var toCurrencies = _db.GetToCurrencies();
+
+            url.Append(baseUrl);
+            url.Append("?Base=");
+            foreach (var fromCurrency in fromCurrencies)
+            {
+                url.Append(fromCurrency);
+                url.Append("_");
+            }
+            url.Remove(url.Length - 1, 1);
+
+            url.Append("&Code=");
+            foreach (var toCurrency in toCurrencies)
+            {
+                url.Append(toCurrency);
+                url.Append("_");
+            }
+            url.Remove(url.Length - 1, 1);
+            
+            url.Append("&Date=");
+            url.Append(date.ToString("yyyy/MM/dd", new DateTimeFormatInfo { DateSeparator = "/" }));
+
+            return url.ToString();
+        }
+    }
+}
+
+
+
+-----------------------------------------------------------------------------------------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Web;
+
+namespace TestingExample.Models
+{
+    public class FormatHelper
+    {
+        public string ToUnderscoreList(List<string> stringList)
+        {
+            var underscoreList = new StringBuilder();
+
+            foreach (var stringItem in stringList)
+            {
+                underscoreList.Append(stringItem);
+                underscoreList.Append("_");
+            }
+            underscoreList.Remove(underscoreList.Length - 1, 1);
+
+            return underscoreList.ToString();
+        }
+
+    }
+}
+
+
+
+-----------------------------------------------------------------------------------------------------------
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Text;
+using System.Web;
+
+namespace TestingExample.Models
+{
+    public class ExchangeRateEngine
+    {
+        private IConfigHelper _configHelper;
+        private IOpayqueDb _db;
+
+        public ExchangeRateEngine(IConfigHelper configHelper, IOpayqueDb db)
+        {
+            _configHelper = configHelper;
+            _db = db;
+        }
+        
+        public string GetUrl(DateTime date)
+        {
+            var baseUrl = _configHelper.FeedUrl();
+            var fromCurrencies = _db.GetFromCurrencies();
+            var toCurrencies = _db.GetToCurrencies();
+
+            var formatHelper = new FormatHelper();
+
+            var url = new StringBuilder();
+
+            url.Append(baseUrl);
+            url.Append("?Base=");
+            url.Append(formatHelper.ToUnderscoreList(fromCurrencies));
+
+            url.Append("&Code=");
+            url.Append(formatHelper.ToUnderscoreList(toCurrencies));
+            
+            url.Append("&Date=");
+            url.Append(date.ToString("yyyy/MM/dd", new DateTimeFormatInfo { DateSeparator = "/" }));
+
+            return url.ToString();
+        }
+    }
+}
+
+
+
+-----------------------------------------------------------------------------------------------------------
+using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
+using System.Collections.Generic;
+using TestingExample.Models;
+
+namespace TestingExample.Tests
+{
+    [TestClass]
+    public class ExchangeRateFeedTests
+    {
+        [TestMethod]
+        public void TestBuildQueryURL()
+        {
+            var configHelper = new Mock<IConfigHelper>();
+            configHelper.Setup(c => c.FeedUrl()).Returns("www.base.com");
+
+            var db = new Mock<IOpayqueDb>();
+            db.Setup(d => d.GetFromCurrencies()).Returns(new List<string> { "C1", "C2" });
+            db.Setup(d => d.GetToCurrencies()).Returns(new List<string> { "CA", "CB" });
+
+            var exchangeRateEngine = new ExchangeRateEngine(configHelper.Object, db.Object);
+
+            var date = new DateTime(2012, 3, 12);
+
+            var result = exchangeRateEngine.GetUrl(date);
+            var expected = "www.base.com?Base=C1_C2&Code=CA_CB&Date=2012/03/12";
+
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        public void TestBuildQueryURLWithoutFromCurrencies()
+        {
+            var configHelper = new Mock<IConfigHelper>();
+            configHelper.Setup(c => c.FeedUrl()).Returns("www.base.com");
+
+            var db = new Mock<IOpayqueDb>();
+            db.Setup(d => d.GetFromCurrencies()).Returns(new List<string>());
+            db.Setup(d => d.GetToCurrencies()).Returns(new List<string> { "CA", "CB" });
+
+            var exchangeRateEngine = new ExchangeRateEngine(configHelper.Object, db.Object);
+
+            var date = new DateTime(2012, 3, 12);
+
+            var result = exchangeRateEngine.GetUrl(date);
+            var expected = "www.base.com?Base=&Code=CA_CB&Date=2012/03/12";
+
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        public void TestBuildQueryURLWithoutToCurrencies()
+        {
+            var configHelper = new Mock<IConfigHelper>();
+            configHelper.Setup(c => c.FeedUrl()).Returns("www.base.com");
+
+            var db = new Mock<IOpayqueDb>();
+            db.Setup(d => d.GetFromCurrencies()).Returns(new List<string> { "C1", "C2" });
+            db.Setup(d => d.GetToCurrencies()).Returns(new List<string> ());
+
+            var exchangeRateEngine = new ExchangeRateEngine(configHelper.Object, db.Object);
+
+            var date = new DateTime(2012, 3, 12);
+
+            var result = exchangeRateEngine.GetUrl(date);
+            var expected = "www.base.com?Base=C1_C2&Code=&Date=2012/03/12";
+
+            Assert.AreEqual(expected, result);
+        }
+    }
+}
+
+
+//Build query URL
+// Given    - confighelper returns baseurl
+//          - db.getFromCurrencies returns list of currency symbols eg. USD,ZAR,CAD
+//          - db.getToCurrencies returns list of currency symbols eg. GBP, 
+
+//Retrieve CSV from Web and format
+
+//convert lines to objects
+
+//store to database
+
+
+-----------------------------------------------------------------------------------------------------------
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Web;
+
+namespace TestingExample.Models
+{
+    public class FormatHelper
+    {
+        public string ToUnderscoreList(List<string> stringList)
+        {
+            if (stringList.Count == 0)
+            {
+                return string.Empty;
+            }
+
+
+            var underscoreList = new StringBuilder();
+
+            foreach (var stringItem in stringList)
+            {
+                underscoreList.Append(stringItem);
+                underscoreList.Append("_");
+            }
+            underscoreList.Remove(underscoreList.Length - 1, 1);
+
+            return underscoreList.ToString();
+        }
+
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------
+
+

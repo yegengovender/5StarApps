@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>TDD</title>
+	<link href="/Content/site.css" rel="stylesheet" />
+
+	<style>
+		div.step{
+			width: 800px;
+			height: 600px;
+		  	box-shadow: 15px 15px 4px rgba(30,30,30,0.5);
+			border: solid 3px #EBEBEB;
+			background-color: #FFF;
+			color: #444;
+			padding: 35px;
+			border-radius: 15px;
+		}
+					
+		.fallback-message {
+			display: none;
+		}
+		
+		body {
+			margin: 0;			
+		}
+		
+		#impress {
+			background-color: #bcbcbc;
+		    font-family: 'PT Serif', georgia, serif;
+			font-size: 35px;
+			text-align: center;
+		}
+		
+		img {max-height: 415px;}
+		
+		li { margin-left: 150px; text-align: left; }
+		
+		.businessReq li { font-size: 24px; margin-left: 0px; }
+		
+		.transcript {
+			font-size: 10px;
+			font-family: arial;
+			width: 70%;
+			position: absolute;
+			display: block;
+			background-color: rgba(3,3,3,0.75);
+			color: #ddd;
+			padding: 15px;
+			bottom: 48px;
+			border-radius: 8px;
+		}
+		
+		#header {
+			height: 75px;
+			margin: 0;
+			padding: 0;
+			background-color: #CACACA;
+			background-repeat: no-repeat;
+			background-image: url('/images/joburg%20bw%20small.png');
+			text-align: left;
+		}
+		
+		#header a {
+			display: block;
+			height: 75px;
+			width: 288px;
+			text-align: center;
+			font-family: 'league_gothicregular', Helvetica; 
+			font-size: 55px;
+			text-decoration: none;
+			background-color: rgba(120,120,120,0.2);
+			color: khaki;
+			text-shadow: -2px 8px 2px #1e1e1e; 
+		   	transition: all 0.5s;
+	  	}
+		
+		#header a:hover {
+			background-color: transparent;  
+			color: #ffd800;
+		  	text-shadow: 5px 5px 2px #1e1e1e;
+		}
+		
+	</style>
+</head>
+	
+
+<body class="impress-not-supported">
+
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<div id="header">
+	<a href="/">5 Star Apps</a>
+</div>
+
+<div id="impress">
+	
+	<div class="step slide" data-x="0" data-y="0" data-z="-500" data-rotate-x="0" data-rotate-y="-180" data-rotate-z="0" data-scale="1">
+		<h2>Disclaimer</h2>
+		<p>
+		The following presentation contains controversial subject matter, questionable code, and bad puns.<br />
+		Viewer discretion is advised.
+		</p>
+		<div class="transcript">
+			
+		</div>
+	</div>
+
+	<div class="step slide" data-x="0" data-y="0" data-z="0" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1">
+		<h2>Unit Testing</h2>
+		<h3>A Quick Intro...</h3>
+		<p>Unit Testing is a coding technique of writing test code to ensure that a unit of functionality operates as expected.</p>
+		<div class="transcript">
+			<h4>Unit Testing</h4>
+			<h4>A Quick intro...</h4>
+			<p>
+				Unit Testing is a coding technique of writing test code 
+				to ensure that a unit of functionality operates as expected.,							
+			</p>
+			
+		</div>
+	</div>
+
+	<div class="step slide" data-x="0" data-y="1000" data-z="0" data-rotate-x="-180" data-rotate-y="0" data-rotate-z="0" data-scale="1">
+		<h3>Unit Test Characteristics</h3>
+		<li>Isolated</li>
+		<li>Targeted</li>
+		<li>Repeatable</li>
+		<li>Predicatable</li>
+		<div class="transcript">
+			<p>
+			Tests are typically small and fast, 
+			and ideally all should be run regularly 
+			to ensure the codebase is functioning as expected.
+			</p>
+			
+			<p>
+			Isolated - The only requirement for a test to run is the code it is testing, 
+			and other code/tests should not be dependent on the test.
+			</p>
+			
+			<p>
+			Targeted - A test will focus on a single unit of functionality.
+			</p>
+			
+			<p>
+			Repeatable - Tests can be run as many times as necessary.
+			</p>
+			
+			<p>
+			Predictable - A test should be straight forward and easy to 
+			understand what is is testing and why it is passing or failing
+			</p>
+			
+			<p>
+			Since the code being tested should is independent of external libraries and tools,  
+			if the test fails we are certain that it is the code itself 
+			that has violated the conditions of the test 
+			and not some external factor.
+			</p>			
+			
+			<p>
+				This is great for troubleshooting.
+			</p>
+		</div>
+	</div>
+
+	<div class="step slide" data-x="1000" data-y="0" data-z="0" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1">
+		<h2>Troubleshooting</h2>
+		<img src='img/Ateam.jpg' />
+		<div class="transcript">
+			If we have tests that are failing, it does not take long
+			to find the code that is causing the problem, 
+			because the test will point you straight to it. 
+			At this point either the code or the test needs to be fixed.			
+		</div>
+	</div>
+
+	<div class="step slide" data-x="2000" data-y="0" data-z="0" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1">
+		<h2>Loosely Coupled Code </h2>
+		<img src='img/spaghetti.jpeg' height="40%" />
+		<img src='img/sushi.jpg' height="40%"  />
+		<div class="transcript">
+			<p>
+				Writing testable code requires elimination of tightly coupled dependencies, 
+				leading to a maintainable code base. 
+				It is easier to make a change to code when you don't have to worry 
+				that whichever changes you are making will have 
+				unforeseen repercussions that would require rigorous regression testing to uncover.
+			</p>
+
+			<p>
+				A comprehensive test suite ensures that the full functionality 
+				of the code can be determined at any time by running the test suite.
+				Again it must be stressed that the tests be kept lightweight and fast. 
+				If the tests are going to be a burden to run, they won't get run.			
+			</p>
+		</div>
+	</div>
+	
+	<div class="step slide" data-x="3000" data-y="0" data-z="0" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1">
+		<h2>Discipline </h2>
+		<img src='img/PaiMei.jpg' />
+		<div class="transcript">
+			<p>
+				Unit testing requires a fair amount of discipline. 
+				Writing some code that is tested, and then abandoning the tests as the solution progresses
+				renders the tests useless. 
+				By the time one gets to a point when the business requirement changes (and i say 'when' not 'if') 
+				a large portion of untested code will remain to pollute the integrity of the code. 
+				A passing test suite will no longer indicate code integrity. 
+				And failing tests will probably not be helpful in localising the problem in the code.
+				So if you are writing unit tests, write ALL of them.
+			</p>
+		</div>
+	</div>
+	
+	<div class="step slide" data-x="4000" data-y="0" data-z="0" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1">
+		<img src='img/TestAllTheThings.jpg' />
+		<h3>Test them all</h3>
+		<div class="transcript">
+			Remember, if a test can't be written for your code, 
+			it's probably going to be just as difficult to make changes to it. 
+			Untestable code usually indicates some tight coupling or rigidity. 
+			It may be stuff that you as the original developer may be aware of, 
+			but the next person to work on the code will take longer to understand how it works 
+			than the amount of time required to originally write it.
+			So be considerate.			
+		</div>
+	</div>
+	
+	<div class="step slide" data-x="5000" data-y="0" data-z="0" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1">
+		<h2>Be Considerate</h2>
+		<img src='img/Rolo.jpg' />
+		<div class="transcript">
+			<p>
+				Kent Beck says in his book 'Implementation Patterns' that 
+				the cost of code maintenance is far higher than the cost of initial development.				
+			</p>					
+		</div>
+	</div>
+	
+	<div class="step slide" data-x="6000" data-y="0" data-z="0" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1">
+		<h3 style="font-style: italic">"Maintenance is expensive because understanding existing code is time-consuming an error-prone...
+		Learning what the current code does is the expensive part"</h3>
+		<h3 style="color: grey">Kent Beck - Implementation Patterns</h3>
+		<div class="transcript">
+			<p>
+				At the time of maintenance, time is not allocated for re-learning of code.
+				Business expects fixes to be quicker than building from scratch, 
+				so it is essential to try to reduce the cost of code maintenance by making
+				predictable maintainable code. Taking this into account, 
+				the additional time required to write tests for units of code 
+				as it is being developed quickly becomes worth the time invested.							
+			</p>			
+		</div>
+	</div>
+	
+	
+	<div class="step slide" data-x="7000" data-y="0" data-z="0" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1">
+		<h3>So write some code. To test your code. While you code.</h3>
+		<img src='img/Xzibit.jpg' />
+		<div class="transcript">
+			I can go on about how testing improves code quality, and the principles that are learned from it, 
+			but as we have limited time, I think we'll dive into some code, 
+			and see if we have more time for theory a bit later.			
+		</div>
+	</div>
+	
+	<div class="step slide" data-x="7000" data-y="0" data-z="-1000" data-rotate-x="-90" data-rotate-y="0" data-rotate-z="0" data-scale="1">
+		<h3>On to some code... {  }</h3>
+		<div class="transcript">
+			
+		</div>
+	</div>
+	
+	<div class="step slide" data-x="7000" data-y="0" data-z="-2000" data-rotate-x="-90" data-rotate-y="0" data-rotate-z="0" data-scale="1">
+		<h3>Business Requirements - Exchange Rate Feed</h3>
+		<ul class="businessReq">
+		<li>Build query URL
+			<ul>
+				<li>www.baseurl.com?Base=USD_ZAR&Code=GBP_AUD&Date=2012/09/21</li>
+				<li>Config contains baseurl</li>
+				<li>DB provides list of currency symbols eg. USD,ZAR,CAD</li>
+				<li>DB provides list of currency symbols eg. GBP,AUD</li>
+			</ul>
+		</li>
+		<li>Retrieve CSV from Web and format</li>
+		<li>Convert lines to objects</li>
+		<li>Store to database</li>
+		</ul>
+
+		<div class="transcript">
+			<p>
+				The recommended practise of Unit Testing is prescribed as TDD.
+				Test Triven Development is the writing of Unit Tests that determine business functionality, 
+				followed by writing code to fulfil this functionality.				
+			</p>
+			
+			<p>
+				So now your unit fulfils the business functionality and is ready to ship. If that is the only requirement for the sprint, then ship it.				
+			</p>
+		</div>
+	</div>
+	
+	<div class="step slide" data-x="7000" data-y="0" data-z="-3000" data-rotate-x="-90" data-rotate-y="0" data-rotate-z="0" data-scale="1">
+		<div style="text-align: center">
+		<H1>AAA</H1>
+		<H3>Arrange</H3>
+		<H3>Act</H3>
+		<H3>Assert</H3>
+		</div>
+		<div class="transcript">
+			<p>
+				Now we have our requirements, we will start a new project and add a test suite.				
+			</p>
+			
+			<p>
+				Start writing our first test for first business requirement.
+			</p>
+			
+			<li>Arrange - Set up environment variables and mocks</li>
+			<li>Action - Execute the funcitonality we are testing</li>
+			<li>Assert - Check if the code behaves as expected. 
+				Assert is a command that evaluates to true or false, 
+				determines the pass or fail of the test.</li>
+		</div>
+	</div>
+	
+	<div class="step slide" data-x="7000" data-y="0" data-z="-4000" data-rotate-x="-90" data-rotate-y="0" data-rotate-z="0" data-scale="1">
+		<H1>RGR</H1>
+		<H3>Red</H3>
+		<H3>Green</H3>
+		<H3>Refactor</H3>
+		<div class="transcript">
+			<p>
+				Now make the code compile to begin [RGR]
+			</p>
+			
+			<p>
+				Red - Code compiles, but test does not pass
+				The goal is to move to Green				
+			</p>
+
+			<p>
+				Green - Test passes
+			</p>
+
+			<p>
+				Refactor - With our tests guarding our business requirement, 
+				we can refactor away and always know at any point if we have broken anything,			
+			</p>						
+		</div>
+	</div>
+	
+	<div class="step slide" data-x="7000" data-y="0" data-z="-5000" data-rotate-x="-90" data-rotate-y="0" data-rotate-z="180" data-scale="1">
+		<h2>A Bug</h2>
+		<img src='img/Bug.jpg' />
+		<div class="transcript">
+			<p>
+			Now lets introduce a bug into the system
+			</p>
+			
+			<p>
+			Lets just say that as the Opayque DB and our engine are independent of each other, 
+			the from-currencies and to-currencies lists are not static, but
+			are changed around every now and then.
+			</p>
+			
+			<p>
+			Some days the lists are even empty. So we ask Jono wat happens to the feed when one on the lists is empty, 
+			and he says what does the feed return?
+			so we test it in the browser and find that wow it works fine. It simply doesnt apply a filter to the missing list. 
+			Strangely enough our code breaks...
+			</p>			
+		</div>
+	</div>
+	
+	<div class="step slide" data-x="6000" data-y="-500" data-z="-5000" data-rotate-x="-90" data-rotate-y="0" data-rotate-z="180" data-scale="1">
+		<h3>Back to the code... {  }</h3>
+		<div class="transcript">
+			<p>
+			We write up a couple more tests to see cover these conditions.
+			<p>
+			So we find that the helper method is breaking with an empty string. Fixy fixy and magic
+			Passing tests.
+			</p>
+			
+			<p>
+			So now we are refactoring Junkies, and we start to refactor the tests.
+			This is important, as it is also part of the code base and needs to be maintained.
+			Future developers that expand on this project will be expanding the test suites as well,
+			or using the test suites to troubleshoot. If we let it get messy, it loses value. 
+			Remember discipline.
+			</p>
+
+		</div>
+	</div>
+	
+	<div class="step slide" data-x="6000" data-y="-1000" data-z="-5000" data-rotate-x="0" data-rotate-y="0" data-rotate-z="180" data-scale="1">
+		<H1>Recap...</H1>
+		<div class="transcript">
+			<p>
+			Let's recap what we just saw.
+			</p>
+			
+			<p>
+			Unit tests are run in a test suite, 
+			implementing a testing framework.
+			</p>
+		</div>
+	</div>
+	
+	<div class="step slide" data-x="6000" data-y="0" data-z="-5000" data-rotate-x="0" data-rotate-y="0" data-rotate-z="180" data-scale="1">
+		<h3>Tools - Testing Frameworks</h3>
+			<li>NUnit</li>
+			<li>Visual Studio Testing Framework</li>
+			
+		<h3>Mocking Frameworks</h3>			
+			<li>Rhino Mocks</li>
+			<li>Moq</li>
+			<li>JustMock</li>
+		<div class="transcript">
+			<li>NUnit</li>
+			</li>VS Testing Framework (TFS)</li>
+			
+			</li>Rhino Mocks</li>
+			</li>Moq</li>
+			</li>JustMock</li>
+
+
+			<p>A note on mocking...</p>
+		</div>
+	</div>
+	
+	<div class="step slide" data-x="6000" data-y="1000" data-z="-5000" data-rotate-x="0" data-rotate-y="0" data-rotate-z="180" data-scale="1">
+		<h2>Mocking</h2>
+		<li>Dummy Object</li>
+		<li>Stubs</li>
+		<li>Mocks</li>
+		<div class="transcript">
+			<li>Dummy object - created just to allow code to compile</li>
+			<li>Stub - provides return values on the methods that are used by the test</li>
+			<li>Mock - Flexible object with functionality that is programmable</li>
+		</div>
+	</div>
+	
+	<div class="step slide" data-x="6000" data-y="2000" data-z="-5000" data-rotate-x="0" data-rotate-y="0" data-rotate-z="180" data-scale="1">
+		<p>Arrange, Act, Assert</p>
+		<p>Red. Green. Refactor.</p>
+		<p>Write only what you need to make the tests pass</p>
+		<p>Use dependency injection for code dependencies</p>
+		<p>Refactoring - apply good OOP</p>
+		<p>SOLID</p>
+
+		<div class="transcript">
+			<p>AAA</p>
+			<p>RGR</p>
+			
+			<p>Write only what you need to make the tests pass</p>
+			
+			<p>Use dependency injection for code dependencies</p>
+			
+			<p>Refactoring - apply good OOP + SOLID</p>
+		</div>
+	</div>
+	
+	<div class="step slide" data-x="6000" data-y="3000" data-z="-5000" data-rotate-x="0" data-rotate-y="0" data-rotate-z="180" data-scale="1">
+		<h3>OOP Principles</h3>
+		<li>Encapsulation</li>
+		<li>Inheritance</li>
+		<li>Polymorphism</li>
+		<h3>SOLID</h3>
+		<li>Single Reponsibility</li>
+		<li>Open for extension. Closed for modification.</li>
+		<li>Liskov Substitution </li>
+		<li>Interface Segregation</li>
+		<li>Dependency Inversion</li>
+		<div class="transcript">
+			
+		</div>
+	</div>
+
+	<div class="step slide" data-x="6000" data-y="4000" data-z="-5000" data-rotate-x="0" data-rotate-y="0" data-rotate-z="180" data-scale="1">
+		<h4>Look for code smells such as</h4>
+		<li>Code repetition</li>
+		<li>Long methods</li>
+		<li>Bad naming</li>
+		
+		<p>Less code == less room for errors</p>
+		<div class="transcript">
+			
+		</div>
+	</div>
+
+	<div class="step slide" data-x="6000" data-y="5000" data-z="-5000" data-rotate-x="0" data-rotate-y="0" data-rotate-z="180" data-scale="1">
+		<h3>Further Information</h3>
+		<li>Test Driven Development - Kent Beck</li>
+		<li>Professional Test Driven Development with C# - James Bender, Jeff McWherter</li>
+		<img src="img/KentBeckTdd.jpg" />
+		<img src="img/ProfessionalTdd.jpg" />
+		<div class="transcript">
+			
+		</div>
+	</div>
+
+	<div class="step slide" data-x="6000" data-y="5000" data-z="0" data-rotate-x="0" data-rotate-y="0" data-rotate-z="0" data-scale="1">
+		<h2>Conclusion</h2>
+		<img src='img/IFindYourLackOfUnitTestsDisturbing.jpg' />
+		<div class="transcript">
+			
+		</div>
+	</div>
+	
+</div>
+
+	<script src="http://bartaz.github.com/impress.js/js/impress.js"></script>
+	<script>impress().init();</script>
+
+
+
+</body>
+</html>
