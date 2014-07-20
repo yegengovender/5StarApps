@@ -1,179 +1,177 @@
 ﻿$blue1: #115673;
 $blue2: #1F4656;
-$dark-grey-80: rgba(60,60,60,.8);
+$dark-grey-80: rgba(60, 60, 60, .8);
 
 @font-face {
-    font-family: 'league_gothicregular';
-    src: url('/fonts/leaguegothic-regular-webfont.eot');
-    src: url('/fonts/leaguegothic-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/fonts/leaguegothic-regular-webfont.woff') format('woff'),
-         url('/fonts/leaguegothic-regular-webfont.ttf') format('truetype'),
-         url('/fonts/leaguegothic-regular-webfont.svg#league_gothicregular') format('svg');
-    font-weight: normal;
-    font-style: normal;   
+  font-family: 'league_gothicregular';
+  src: url('../fonts/leaguegothic-regular-webfont.eot');
+  src: url('../fonts/leaguegothic-regular-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/leaguegothic-regular-webfont.woff') format('woff'),
+  url('../fonts/leaguegothic-regular-webfont.ttf') format('truetype'),
+  url('../fonts/leaguegothic-regular-webfont.svg#league_gothicregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 
-@keyframes spin-in
-{
-    0% {
-    transform:rotate(600deg);
-    }
-    50% {
-        font-size: 5px;
-    }
+@keyframes spin-in {
+  0% {
+    transform: rotate(600deg);
+  }
+  50% {
+    font-size: 5px;
+  }
 }
 
-@-webkit-keyframes spin-in-w
-{
-    0% {
-    -webkit-transform:rotate(600deg);
-    }
-    50% {
-        font-size: 5px;
-    }
-    
+@-webkit-keyframes spin-in-w {
+  0% {
+    -webkit-transform: rotate(600deg);
+  }
+  50% {
+    font-size: 5px;
+  }
+
 }
 
 body {
-    background-image: url('../images/joburg-colour.png');
-    background-size : cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    font-size-adjust: 1.25;
+  background-image: url('../images/joburg-colour.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-size-adjust: 1.25;
 }
 
 .section-page {
-    padding: 40px 0;
+  padding: 40px 0;
 }
 
 #menu {
-    position: fixed;
-    z-index: 100;
+  position: fixed;
+  z-index: 100;
 }
 
 .nav-pills > li {
-  padding: 10px; }
+  padding: 10px;
+}
 
 .nav-pills > li > a {
   color: white;
   background-color: #aaaaaa;
   transition: text-shadow .5s, background-color .5s;
-  }
+}
 
 .nav-pills > li.active > a {
   color: white;
   background-color: #4b4b4b;
   font-weight: bold;
-  text-shadow: 0 3px 2px #000; }
+  text-shadow: 0 3px 2px #000;
+}
 
 .nav-pills > li > a:hover, .nav-pills > li > a:focus {
   color: white;
-  background-color: grey; 
-  text-shadow: 0 3px 2px #4b4b4b; }
+  background-color: grey;
+  text-shadow: 0 3px 2px #4b4b4b;
+}
 
 .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
   color: white;
-  background-color: #383838; 
-  text-shadow: 0 3px 2px #000; }
-
+  background-color: #383838;
+  text-shadow: 0 3px 2px #000;
+}
 
 #about-contact {
-    background-color: #444;
-    color: white;
-    padding: 50px 0;
-    text-shadow: 3px 3px 1px #000;
-    
-    .col1, .col2 {
-        min-height: 300px;
-    }
-    
-    .col1 {
-        border-right: solid 2px #000;
-    }
-    
-    .col2 {
-        border-left: solid 2px #999;
-    }    
+  background-color: #444;
+  color: white;
+  padding: 50px 0;
+  text-shadow: 3px 3px 1px #000;
+
+  .col1, .col2 {
+    min-height: 300px;
+  }
+
+  .col1 {
+    border-right: solid 2px #000;
+  }
+
+  .col2 {
+    border-left: solid 2px #999;
+  }
 }
 
 #main-heading {
-    text-align: center;
-    color: white;
-    text-shadow: 0 0 20px #333;
-    font-family: 'league_gothicregular', Helvetica;
+  text-align: center;
+  color: white;
+  text-shadow: 0 0 20px #333;
+  font-family: 'league_gothicregular', Helvetica;
 }
 
-
 .animated-star {
-    animation: spin-in 1.5s linear 5s;
-    -webkit-animation: spin-in-w 1.5s linear 5s;        
+  animation: spin-in 1.5s linear 5s;
+  -webkit-animation: spin-in-w 1.5s linear 5s;
 }
 
 .mainlogo {
-    color: #ffd800;
-    margin: 5px;
-    text-shadow: 5px 5px 2px rgb(30,30,30);
-    
-    i.star1 {
-        @extend .animated-star; 
-        font-size: 30px;
-    }
+  color: #ffd800;
+  margin: 5px;
+  text-shadow: 5px 5px 2px rgb(30, 30, 30);
 
-    i.star2 {
-        @extend .animated-star;
-        font-size: 40px;
-    }
+  i.star1 {
+    @extend .animated-star;
+    font-size: 30px;
+  }
 
-    i.star3 {
-        @extend .animated-star;
-        font-size: 50px;
-    }
-    
+  i.star2 {
+    @extend .animated-star;
+    font-size: 40px;
+  }
+
+  i.star3 {
+    @extend .animated-star;
+    font-size: 50px;
+  }
+
 }
 
 div.companynameborder {
-    text-align: center;
-    margin: 50px auto;
-    height: 410px;
-    width: 410px;
-    border: solid 10px $dark-grey-80;
-    border-radius: 50%;
+  text-align: center;
+  margin: 50px auto;
+  height: 410px;
+  width: 410px;
+  border: solid 10px $dark-grey-80;
+  border-radius: 50%;
 }
 
 div.companyname {
-    height: 380px;
-    width: 380px;
-    background-color: $dark-grey-80;
-    border-radius: 50%;  
-    margin: 5px;
-    padding-top: 50px;
-    
-    h1, h2 {
-        font-family: Georgia;
-        color: #CCC;
-        font-family: 'league_gothicregular', Helvetica;
-    }    
-    
-    h1 {
-        font-size: 90px;
-    }
-    
-    h2 {
-        font-size: 75px;
-    }
+  height: 380px;
+  width: 380px;
+  background-color: $dark-grey-80;
+  border-radius: 50%;
+  margin: 5px;
+  padding-top: 50px;
+
+  h1, h2 {
+    font-family: Georgia;
+    color: #CCC;
+    font-family: 'league_gothicregular', Helvetica;
+  }
+
+  h1 {
+    font-size: 90px;
+  }
+
+  h2 {
+    font-size: 75px;
+  }
 }
 
 .myname h1 {
-    font-size: 100px;
-    font-family: 'league_gothicregular', Helvetica;
+  font-size: 100px;
+  font-family: 'league_gothicregular', Helvetica;
 }
 
 .portfolio {
-    color: #E9D988;
-    font-family: 'league_gothicregular', Helvetica;
+  color: #E9D988;
+  font-family: 'league_gothicregular', Helvetica;
 }
-
-
 
 /*
     http://colorschemedesigner.com/#3r51Ts.mUw0w0
@@ -181,3 +179,33 @@ div.companyname {
     http://colorschemedesigner.com/#2Y21TnmAEw0w0
     node-sass Content/site.scss --output site.css -w
 */
+
+#header {
+  height: 75px;
+  margin: 0;
+  padding: 0;
+  background-color: rgba(100,100,100,0.2);
+  background-repeat: no-repeat;
+  background-image: url('/images/joburg%20bw%20small.png');
+  text-align: left;
+}
+
+#header a {
+  display: block;
+  height: 75px;
+  width: 288px;
+  text-align: center;
+  font-family: 'league_gothicregular', Helvetica;
+  font-size: 55px;
+  text-decoration: none;
+  background-color: transparent;
+  color: khaki;
+  text-shadow: -2px 8px 2px #1e1e1e;
+  transition: all 0.5s;
+}
+
+#header a:hover {
+  background-color: rgba(120,120,120,0.2);
+  color: #ffd800;
+  text-shadow: 5px 5px 2px #1e1e1e;
+}

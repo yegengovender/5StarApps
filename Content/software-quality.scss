@@ -1,0 +1,21 @@
+.code-quality{
+  margin: 20px auto;
+  background-color: rgba(255,255,255,0.75);
+  border-radius: 5px;
+}
+
+.first-letters, .second-letters {
+  display: block;
+  width: 275px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 120px;
+}
+
+.first-letters{
+  border-bottom: solid 4px;
+}
+
+.second-letters{
+  border-top: solid 4px;
+}
