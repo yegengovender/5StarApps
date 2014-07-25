@@ -1,0 +1,14 @@
+#protractor-install {
+  font-size: 1.3em; }
+  #protractor-install .well {
+    padding: 10px;
+    color: seashell;
+    background-color: #383838;
+    font-family: monospace; }
+  #protractor-install .requirements {
+    background-color: rgba(202, 202, 202, 0.6);
+    padding: 15px;
+    margin: 10px -15px; }
+    #protractor-install .requirements h4 {
+      color: #d66c35;
+      margin-top: 25px; }
