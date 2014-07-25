@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <title>Protractor Installation</title>
     <link href="../Content/site.css" rel="stylesheet"/>
-    <link href="../Content/bootstrap.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/protractor.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
     <script src="./js/protractorInstall.js"></script>
@@ -20,189 +20,243 @@
 
 <div id="protractor-install" class="container standard-container" ng-app="protractorInstall"
      ng-controller="protractorInstallController">
-    <h1>Protractor Installation</h1>
+<h1>Protractor Installation</h1>
 
-    <div class="row">
-        <div class="col-sm-4">
-            <button class="btn btn-lg btn-block" ng-class="platform=='windows'?'btn-info':'btn-default'"
-                    ng-click="platform='windows'">Windows
-            </button>
-        </div>
-        <div class="col-sm-4">
-            <button class="btn btn-lg btn-block" ng-class="platform=='osx'?'btn-info':'btn-default'"
-                    ng-click="platform='osx'">OSX
-            </button>
-        </div>
-        <div class="col-sm-4">
-            <button class="btn btn-lg btn-block" ng-class="platform=='linux'?'btn-info':'btn-default'"
-                    ng-click="platform='linux'">Linux
-            </button>
-        </div>
-    </div>
-    <div class="requirements">
-        <h3>Requirements</h3>
-
-        <h4>NodeJs</h4>
-
-        <p>To check if you have NodeJs installed, run this command at the command-line / terminal.</p>
-
-        <div class="well">
-            node --version
-        </div>
-
-        <button class="btn btn-primary" ng-click="showNodeInstall= !showNodeInstall">{{(showNodeInstall?'Hide':'Show')}}
-            NodeJs installation instructions
+<div class="row">
+    <div class="col-sm-4">
+        <button class="btn btn-lg btn-block" ng-class="platform=='windows'?'btn-info':'btn-default'"
+                ng-click="platform='windows'">Windows
         </button>
-
-        <div class="row" ng-show="showNodeInstall">
-
-            <div class="col-sm-12" ng-show="platform=='windows'">
-                <p>Go to <a href="http://nodejs.org" target="_blank">jodejs.org</a></p>
-
-                <p>
-                    <img src="../images/node.js.png" alt="node screenshot" width="60%"/>
-                </p>
-
-                <p>Click the install button to download the install package.</p>
-
-                <p>Run the install MSI and follow the instructions, and you're good to go.</p>
-            </div>
-
-            <div class="col-sm-12" ng-show="platform=='osx'">
-                <p>Go to <a href="http://nodejs.org" target="_blank">jodejs.org</a></p>
-
-                <p>
-                    <img src="../images/node.js.png" alt="node screenshot" width="60%"/>
-                </p>
-
-                <p>Click the install button to download the install package.</p>
-
-                <p>Run the install DMG, and follow the instructions, and you're good to go.</p>
-            </div>
-
-            <div class="col-sm-12" ng-show="platform=='linux'">
-                <p>Go to <a href="http://nodejs.org" target="_blank">jodejs.org</a></p>
-
-                <p>
-                    <img src="../images/node.js.png" alt="node screenshot" width="60%"/>
-                </p>
-
-                <p>Click the install button to download the install package.</p>
-
-                <p>Run the install and you're good to go.</p>
-            </div>
-        </div>
-
-        <h4>JDK</h4>
-
-        <p>To check if you have JDK installed, run this command at the command-line / terminal.</p>
-
-        <div class="well">
-            java -version
-        </div>
-
-        <button class="btn btn-primary" ng-click="showJdkInstall= !showJdkInstall">{{(showJdkInstall?'Hide':'Show')}}
-            JDK installation instructions
-        </button>
-
-        <div class="row" ng-show="showJdkInstall">
-            <div class="col-sm-12" ng-show="platform=='windows'">
-                <p>
-                    Go to <a href="http://www.oracle.com/technetwork/java/javase/downloads/" target="_blank">Oracle Java
-                    Downloads</a> site to get the install file. Click the Download link.
-                </p>
-
-                <p>
-                    <img src="../images/jdk%20download.png" alt="JDK download link" width="80%"/>
-                </p>
-
-                <p>
-                    Accept the license agreement, and then select the correct file to download. <br/>
-                    Windows x86 for 32-bit, or Windows x64 for 64-bit. <br/>
-                    (if you are unsure, use the windows 32-bit version)
-                </p>
-
-                <p>
-                    <img src="../images/jdk%20windows%20file.png" alt="JDK windows files" width="80%"/>
-                </p>
-
-                <p>Run the downloaded EXE file, and go through the wizard to install the JDK.</p>
-            </div>
-
-            <div class="col-sm-12" ng-show="platform=='osx'">
-                <p>
-                    Go to <a href="http://www.oracle.com/technetwork/java/javase/downloads/" target="_blank">Oracle Java
-                    Downloads</a> site to get the install file. Click the Download link.
-                </p>
-
-                <p>
-                    <img src="../images/jdk%20download.png" alt="JDK download link" width="80%"/>
-                </p>
-
-                <p>
-                    Accept the license agreement, and then select the correct file to download. <br/>
-                    Windows x86 for 32-bit, or Windows x64 for 64-bit. <br/>
-                    (if you are unsure, use the windows 32-bit version)
-                </p>
-
-                <p>
-                    <img src="../images/jdk%20osx%20file.png" alt="JDK osx files" width="80%"/>
-                </p>
-
-                <p>Run the downloaded DMG file, and go through the wizard to install the JDK.</p>
-            </div>
-        </div>
     </div>
+    <div class="col-sm-4">
+        <button class="btn btn-lg btn-block" ng-class="platform=='osx'?'btn-info':'btn-default'"
+                ng-click="platform='osx'">OSX
+        </button>
+    </div>
+    <div class="col-sm-4">
+        <button class="btn btn-lg btn-block" ng-class="platform=='linux'?'btn-info':'btn-default'"
+                ng-click="platform='linux'">Linux
+        </button>
+    </div>
+</div>
+<div class="requirements">
+    <h3>Requirements</h3>
 
+    <h4>NodeJs</h4>
 
-    <h3>Installing</h3>
-
-    <p>
-        Use npm to install Protractor globally (omit the -g if you’d prefer not to install globally):
-    </p>
+    <p>To check if you have NodeJs installed, run this command at the command-line / terminal.</p>
 
     <div class="well">
-        npm install -g protractor
+        node --version
     </div>
 
-    <p>
-        Check that Protractor is working by running protractor --version.
-    </p>
+    <button class="btn btn-primary" ng-click="showNodeInstall= !showNodeInstall">{{(showNodeInstall?'Hide':'Show')}}
+        NodeJs installation instructions
+    </button>
 
-    <p>
-        The Protractor install includes the following:
+    <div class="row" ng-show="showNodeInstall">
 
-    <li> protractor command line tool</li>
-    <li>webdriver-manager command line tool</li>
-    <li>Protractor API (library)</li>
-    </p>
+        <div class="col-sm-12" ng-show="platform=='windows'">
+            <p>Go to <a href="http://nodejs.org" target="_blank">jodejs.org</a></p>
 
-    <h3>Installing the Selenium Server</h3>
+            <p>
+                <img src="../images/node.js.png" alt="node screenshot" width="60%"/>
+            </p>
 
-    <p>
-        Install the server and ChromeDriver, and then start the selenium server.
-    </p>
+            <p>Click the install button to download the install package.</p>
+
+            <p>Run the install MSI and follow the instructions, and you're good to go.</p>
+        </div>
+
+        <div class="col-sm-12" ng-show="platform=='osx'">
+            <p>Go to <a href="http://nodejs.org" target="_blank">jodejs.org</a></p>
+
+            <p>
+                <img src="../images/node.js.png" alt="node screenshot" width="60%"/>
+            </p>
+
+            <p>Click the install button to download the install package.</p>
+
+            <p>Run the install DMG, and follow the instructions, and you're good to go.</p>
+        </div>
+
+        <div class="col-sm-12" ng-show="platform=='linux'">
+            <p>Go to <a href="http://nodejs.org" target="_blank">jodejs.org</a></p>
+
+            <p>
+                <img src="../images/node.js.png" alt="node screenshot" width="60%"/>
+            </p>
+
+            <p>Click the install button to download the install package.</p>
+
+            <p>
+                Extract the installation to a folder, and then open that folder in the terminal. <br/>
+                Run the following commands.
+            </p>
+
+            <div class="well">
+                ./configure <br/>
+                make <br/>
+                make install
+            </div>
+        </div>
+    </div>
+
+    <h4>JDK</h4>
+
+    <p>To check if you have JDK installed, run this command at the command-line / terminal.</p>
 
     <div class="well">
-        webdriver-manager update <br/>
-        webdriver-manager start
+        java -version
     </div>
 
-    <p>
-        You will see a lot of output logs, starting with INFO. The last line will be 'Info - Started
-        org.openqa.jetty.jetty.Server'. <br/>
-        Leave the server running while you conduct your test sessions.
-    </p>
+    <button class="btn btn-primary" ng-click="showJdkInstall= !showJdkInstall">{{(showJdkInstall?'Hide':'Show')}}
+        JDK installation instructions
+    </button>
 
-    <p>
-        Check the <a href="https://github.com/angular/protractor/tree/master/docs" target="_blank">Protractor Docs</a>
-        for more information.
-    </p>
+    <div class="row" ng-show="showJdkInstall">
+        <div class="col-sm-12" ng-show="platform=='windows'">
+            <p>
+                Go to <a href="http://www.oracle.com/technetwork/java/javase/downloads/" target="_blank">Oracle Java
+                Downloads</a> site to get the install file. Click the Download link.
+            </p>
 
+            <p>
+                <img src="../images/jdk%20download.png" alt="JDK download link" width="80%"/>
+            </p>
 
-    <div class="row">
+            <p>
+                Accept the license agreement, and then select the correct file to download. <br/>
+                Windows x86 for 32-bit, or Windows x64 for 64-bit. <br/>
+                (if you are unsure, use the windows 32-bit version)
+            </p>
+
+            <p>
+                <img src="../images/jdk%20windows%20file.png" alt="JDK windows files" width="80%"/>
+            </p>
+
+            <p>Run the downloaded EXE file, and go through the wizard to install the JDK.</p>
+        </div>
+
+        <div class="col-sm-12" ng-show="platform=='osx'">
+            <p>
+                Go to <a href="http://www.oracle.com/technetwork/java/javase/downloads/" target="_blank">Oracle Java
+                Downloads</a> site to get the install file. Click the Download link.
+            </p>
+
+            <p>
+                <img src="../images/jdk%20download.png" alt="JDK download link" width="80%"/>
+            </p>
+
+            <p>
+                Accept the license agreement, and then select the correct file to download. <br/>
+                Windows x86 for 32-bit, or Windows x64 for 64-bit. <br/>
+                (if you are unsure, use the windows 32-bit version)
+            </p>
+
+            <p>
+                <img src="../images/jdk%20osx%20file.png" alt="JDK osx files" width="80%"/>
+            </p>
+
+            <p>Run the downloaded DMG file, and go through the wizard to install the JDK.</p>
+        </div>
+
+        <div class="col-sm-12" ng-show="platform=='linux'">
+            <p class="bg-primary">
+                <strong>Note:</strong> <br/>
+                Many Linux distributions come with the JDK pre-installed.
+            </p>
+
+            <p>
+                Go to <a href="http://www.oracle.com/technetwork/java/javase/downloads/" target="_blank">Oracle Java
+                Downloads</a> site to get the install file. Click the Download link.
+            </p>
+
+            <p>
+                <img src="../images/jdk%20download.png" alt="JDK download link" width="80%"/>
+            </p>
+
+            <p>
+                Accept the license agreement, and then select the correct file to download. <br/>
+                Linux x86 for 32-bit, or Linux x64 for 64-bit. <br/>
+                .rpm is for Redhat-based Linux distributions. The tar.gz file is for all other versions.
+                (if you are unsure, use the Linux 32-bit version)
+            </p>
+
+            <p>
+                <img src="../images/jdk%20linux%20file.png" alt="JDK linux files" width="80%"/>
+            </p>
+
+            <p>
+                Follow the instructions at
+                <a href="http://docs.oracle.com/javase/8/docs/technotes/guides/install/linux_jdk.html#BJFGGEFG">Oracle
+                    docs</a>
+                to complete the install.
+            </p>
+        </div>
     </div>
+</div>
 
+
+<h3>Installing</h3>
+
+<p>
+    Use npm to install Protractor globally (omit the -g if you’d prefer not to install globally):
+</p>
+
+<div class="well">
+    npm install -g protractor
+</div>
+
+<p>
+    Check that Protractor is working by running protractor --version.
+</p>
+
+<p>
+    The Protractor install includes the following:
+
+<li> protractor command line tool</li>
+<li>webdriver-manager command line tool</li>
+<li>Protractor API (library)</li>
+</p>
+
+<h3>Installing the Selenium Server</h3>
+
+<p>
+    Install the server and ChromeDriver, and then start the selenium server.
+</p>
+
+<div class="well">
+    webdriver-manager update <br/>
+    webdriver-manager start
+</div>
+
+<p>
+    If any of the above commands fail to execute in OSX or Linux, try prefixing the commands with 'sudo ' to run
+    with administrator privileges. <br/>
+    For Windows, ensure you are running the command prompt as Administrator.
+</p>
+
+<p>
+    You will see a lot of output logs, starting with INFO. The last line will be 'Info - Started
+    org.openqa.jetty.jetty.Server'. <br/>
+    Leave the server running while you conduct your test sessions.
+</p>
+
+<p>
+    Check the <a href="https://github.com/angular/protractor/tree/master/docs" target="_blank">Protractor Docs</a>
+    for more information.
+</p>
+
+<h3>
+    Other tools to install
+</h3>
+
+<ul>
+    <li>Angular JS - <a href="https://angularjs.org/">angularjs.org</a></li>
+    <li>A good text editor. Such as <a href="http://www.sublimetext.com/2">Sublime Text</a> or 
+        <a href="http://notepad-plus-plus.org/download/">Notepad++</a> or <a href="http://www.jetbrains.com/webstorm/">WebStorm</a></li>
+</ul>
 
 </div>
 
