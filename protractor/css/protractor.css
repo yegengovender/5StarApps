@@ -6,7 +6,7 @@
     background-color: #383838;
     font-family: monospace; }
   #protractor-install .requirements {
-    background-color: rgba(202, 202, 202, 0.6);
+    background-color: rgba(202, 202, 202, 0.5);
     padding: 15px;
     margin: 10px -15px; }
     #protractor-install .requirements h4 {
